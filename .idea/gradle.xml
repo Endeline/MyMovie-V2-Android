@@ -11,6 +11,15 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/dataModels" />
+            <option value="$PROJECT_DIR$/domain" />
+            <option value="$PROJECT_DIR$/globalCache" />
+            <option value="$PROJECT_DIR$/memoryCache" />
+            <option value="$PROJECT_DIR$/networking" />
+            <option value="$PROJECT_DIR$/permanentCache" />
+            <option value="$PROJECT_DIR$/uiComponents" />
+            <option value="$PROJECT_DIR$/uiModels" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
