@@ -14,3 +14,12 @@ dependencyResolutionManagement {
 }
 rootProject.name = "mymovie"
 include ':app'
+include ':uiComponents'
+include ':domain'
+include ':uiModels'
+include ':dataModels'
+include ':memoryCache'
+include ':permanentCache'
+include ':globalCache'
+include ':networking'
+include ':data'
