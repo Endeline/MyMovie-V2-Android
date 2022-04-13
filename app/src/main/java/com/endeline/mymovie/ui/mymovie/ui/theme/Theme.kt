@@ -1,4 +1,4 @@
-package com.endeline.mymovie.ui.theme
+package com.endeline.mymovie.ui.mymovie.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

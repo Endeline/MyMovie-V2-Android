@@ -1,4 +1,4 @@
-package com.endeline.mymovie
+package com.endeline.mymovie.ui.mymovie
 
 import org.junit.Test
 
