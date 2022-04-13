@@ -1,4 +1,4 @@
-package com.endeline.mymovie.ui.mymovie
+package com.endeline.mymovie.ui.mymovie.ui.gui.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -14,7 +14,6 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.endeline.mymovie.ui.mymovie.navigation.SetNavController
-import com.endeline.mymovie.ui.mymovie.ui.gui.main.MainViewModel
 import com.endeline.mymovie.ui.mymovie.ui.theme.MymovieTheme
 
 class MainActivity : ComponentActivity() {
