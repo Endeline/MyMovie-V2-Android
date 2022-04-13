@@ -1,4 +1,4 @@
-package com.endeline.mymovie.ui.mymovie.ui.gui.home_screen
+package com.endeline.mymovie.ui.mymovie.ui.gui.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button
