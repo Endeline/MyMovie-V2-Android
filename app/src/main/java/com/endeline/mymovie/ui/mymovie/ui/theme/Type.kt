@@ -1,4 +1,4 @@
-package com.endeline.mymovie.ui.theme
+package com.endeline.mymovie.ui.mymovie.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

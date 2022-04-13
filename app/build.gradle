@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.devtools.ksp' version '1.6.10-1.0.2'
 }
 
 android {
@@ -70,6 +71,12 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$test_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$esspresso_core_version"
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+
+    // Compose Nav Destinations
+    implementation "androidx.navigation:navigation-compose:$nav_version"
+
+    //Spas screen
+    implementation "androidx.core:core-splashscreen:$splash_version"
 
     //Modules
     implementation project(":domain")
