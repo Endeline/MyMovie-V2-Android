@@ -5,8 +5,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.endeline.mymovie.ui.mymovie.ui.gui.home.HomeScreen
-import com.endeline.mymovie.ui.mymovie.ui.gui.main.Params
-import com.endeline.mymovie.ui.mymovie.ui.gui.main.TestScreen
+import com.endeline.mymovie.ui.mymovie.ui.gui.home.Params
+import com.endeline.mymovie.ui.mymovie.ui.gui.home.TestScreen
 import com.endeline.mymovie.ui.mymovie.ui.gui.movies.MoviesScreen
 import com.endeline.mymovie.ui.mymovie.ui.gui.people.PeopleScreen
 import com.endeline.mymovie.ui.mymovie.ui.gui.tvs.TvScreen
@@ -16,10 +16,6 @@ fun SetNavController(controller: NavHostController) {
     NavHost(navController = controller, startDestination = Screens.HomeScreen.route) {
         composable(Screens.HomeScreen.route) {
             HomeScreen(controller = controller)
-        }
-
-        composable(Screens.TestScreen.route) {
-            TestScreen(controller = controller, params = Screens.TestScreen.params as Params)
         }
 
         composable(Screens.MovieScreen.route) {
@@ -32,6 +28,10 @@ fun SetNavController(controller: NavHostController) {
 
         composable(Screens.TvScreen.route) {
             TvScreen(controller = controller)
+        }
+
+        composable(Screens.TestScreen.route) {
+            TestScreen(controller = controller, params = Screens.TestScreen.params as Params)
         }
     }
 }
