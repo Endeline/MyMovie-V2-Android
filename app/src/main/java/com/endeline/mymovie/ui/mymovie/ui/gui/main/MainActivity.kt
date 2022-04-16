@@ -5,14 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.endeline.mymovie.ui.mymovie.navigation.Screens
@@ -32,8 +28,8 @@ class MainActivity : ComponentActivity() {
         val bottomItems = listOf(
             Screens.HomeScreen,
             Screens.MovieScreen,
-            Screens.PeopleScreen,
             Screens.TvScreen,
+            Screens.PeopleScreen,
         )
 
         setContent {
@@ -46,8 +42,16 @@ class MainActivity : ComponentActivity() {
                         val currentDestination = navBackStackEntry?.destination
                         bottomItems.forEach { screen ->
                             BottomNavigationItem(
-                                icon = { Icon(Icons.Filled.Favorite, contentDescription = null) },
-                                label = { Text(screen.route) },
+                                icon = {
+                                    screen.icon?.getIcon()?.let { icon ->
+                                        Icon(icon, contentDescription = null)
+                                    }
+                                },
+                                label = {
+                                    screen.screenTitle?.let { title ->
+                                        Text(title)
+                                    }
+                                },
                                 selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
                                 onClick = {
                                     navController.navigate(screen.route) {
@@ -73,13 +77,4 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
-
-data class Params(
-    val title: String
-)
-
-@Composable
-fun TestScreen(controller: NavHostController, params: Params) {
-    Text(text = "Test ${params.title}!")
 }
