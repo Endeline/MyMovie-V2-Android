@@ -75,8 +75,10 @@ dependencies {
     // Compose Nav Destinations
     implementation "androidx.navigation:navigation-compose:$nav_version"
 
-    //Spas screen
+    //Splash screen
     implementation "androidx.core:core-splashscreen:$splash_version"
+
+    implementation "com.google.accompanist:accompanist-pager:0.12.0"
 
     //Modules
     implementation project(":domain")
