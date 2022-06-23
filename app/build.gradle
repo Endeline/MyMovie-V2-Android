@@ -2,6 +2,10 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.devtools.ksp' version '1.6.10-1.0.2'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+//    id 'com.google.dagger.hilt.android' version '2.41' apply false
 }
 
 android {
@@ -18,11 +22,6 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
-
-        buildConfigField "String", "MOVIE_DB_BASE_URL", "\"https://api.themoviedb.org\""
-        buildConfigField "String", "MOVIE_API_KEY", "\"893eec905cedf61581617ff8fda6a7bc\""
-        buildConfigField "String", "API_VERSION", "\"3\""
-
     }
 
     buildTypes {
@@ -78,7 +77,13 @@ dependencies {
     //Splash screen
     implementation "androidx.core:core-splashscreen:$splash_version"
 
-    implementation "com.google.accompanist:accompanist-pager:0.12.0"
+    //ViewPager
+    implementation "com.google.accompanist:accompanist-pager:$pager_version"
+
+    //Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
 
     //Modules
     implementation project(":domain")

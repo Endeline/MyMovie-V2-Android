@@ -12,6 +12,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField "String", "MOVIE_DB_BASE_URL", "\"https://api.themoviedb.org\""
+        buildConfigField "String", "MOVIE_API_KEY", "\"893eec905cedf61581617ff8fda6a7bc\""
+        buildConfigField "String", "API_VERSION", "\"3\""
     }
 
     buildTypes {
@@ -38,6 +42,8 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$test_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$esspresso_core_version"
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
 
     //Modules
     implementation project(":dataModels")
