@@ -27,6 +27,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
 }
 
 dependencies {
@@ -34,9 +40,12 @@ dependencies {
     //Core
     implementation "androidx.core:core-ktx:$ktx_version"
 
-    //todo this below replace with compose?
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    //Compose
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation "androidx.activity:activity-compose:$activity_compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
 
     //testing
     testImplementation "junit:junit:$junit_version"
