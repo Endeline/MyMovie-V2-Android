@@ -55,5 +55,6 @@ dependencies {
 
     //Modules
     implementation project(":uiModels")
+    implementation project(":dataModels")
     implementation project(":data")
 }

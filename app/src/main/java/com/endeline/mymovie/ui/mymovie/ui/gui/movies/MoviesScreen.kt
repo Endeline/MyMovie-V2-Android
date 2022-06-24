@@ -7,8 +7,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Tab
 import androidx.compose.material.TabRow
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
@@ -16,8 +14,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import com.endeline.mymovie.ui.mymovie.ui.gui.movies.latest.LatestMovieScreen
+import com.endeline.uicomponents.ErrorView
 import com.endeline.uicomponents.LoadingView
 import com.endeline.uimodels.MoviesScreenUiModel
 import com.google.accompanist.pager.ExperimentalPagerApi
@@ -27,22 +26,25 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun MoviesScreen(controller: NavHostController, viewModel: MovieViewModel = hiltViewModel()) =
-    when (viewModel.uiState.collectAsState().value) {
+    when (val state = viewModel.uiState.collectAsState().value) {
         is UiState.Loaded -> {
-            CombinedTab((viewModel.uiState.collectAsState().value as UiState.Loaded).model)
+            CombinedTab(
+                controller,
+                state.model
+            )
         }
         UiState.Loading -> {
             LoadingView()
         }
         UiState.Error -> {
-            //todo ErrorView in uiComponents
+            ErrorView()
         }
         UiState.None -> {}
     }
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun CombinedTab(model: MoviesScreenUiModel) {
+fun CombinedTab(controller: NavHostController, model: MoviesScreenUiModel) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(
         pageCount = model.tabsList.size,
@@ -75,7 +77,7 @@ fun CombinedTab(model: MoviesScreenUiModel) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 when (index) {
-                    0 -> LatestMovieScreen()
+                    0 -> LatestMovieScreen(controller)
                     1 -> NowPlayingMovieScreen()
                     2 -> PopularMovieScreen()
                     3 -> TopRatedMovieScreen()
@@ -84,11 +86,6 @@ fun CombinedTab(model: MoviesScreenUiModel) {
             }
         }
     }
-}
-
-@Composable
-fun LatestMovieScreen() {
-    Text(text = "Latest Movies Screen")
 }
 
 @Composable
