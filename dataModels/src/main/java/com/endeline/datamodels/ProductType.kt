@@ -1,4 +1,4 @@
-package com.endeline.uimodels
+package com.endeline.datamodels
 
 sealed class ProductType(val name: String) {
     //Top

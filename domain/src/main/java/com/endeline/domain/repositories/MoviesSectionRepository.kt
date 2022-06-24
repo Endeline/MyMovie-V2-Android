@@ -1,4 +1,4 @@
-package com.endeline.domain
+package com.endeline.domain.repositories
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
